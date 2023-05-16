@@ -30,7 +30,7 @@ if __name__ == '__main__':
     print("[4] Добавить клиента")
     print("[5] Изменить название услуги")
     print("[6] Изменить телефон работника")
-    print("[7] Удалить деталь")
+    print("[7] Удалить отзыв")
     print("[8] Удалить автомобиль")
     print("[9] Подобрать деталь, соответствующую данной модели автомобиля")
     print("[10] Найти все автомобили данной модели")
@@ -42,15 +42,18 @@ if __name__ == '__main__':
     
     queriesDict={
         1:mySQL_Queries.getCarAndModelInfo,
-        2:mySQL_Queries.getManufactorInfo,
+        2:mySQL_Queries.getManufacturerInfo,
         3:mySQL_Queries.addReview,
         4:mySQL_Queries.addUser,
         5:mySQL_Queries.changeServiceName,
         6:mySQL_Queries.changeWorkerPhone,
-        7:mySQL_Queries.deleteDetail,
+        7:mySQL_Queries.deleteReview,
         8:mySQL_Queries.deleteCar,
         9:mySQL_Queries.findDetailToModel,
         10:mySQL_Queries.findCarsToModel,
         }
 
-    queriesDict.get(choise)
+    queriesDict.get(choise)(dbConnection)
+
+    # Закрыть доступ к БД
+    dbConnection.close()
