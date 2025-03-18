@@ -21,7 +21,7 @@ def create_connection(host_name, user_name, user_password, db_name):
 
 if __name__ == '__main__':
     # Открыть доступ к БД
-    dbConnection = create_connection("localhost", "root", "falcon27685", "mydb")
+    dbConnection = create_connection("localhost", sys.argv[1], sys.argv[2], sys.argv[3])
 
     print("Доступные запросы к БД:")
     print("[1] Получить информацию об автомобиле с информацией о модели")
